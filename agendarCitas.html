@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Agendar cita</title>
+    <link rel="stylesheet" href="./public/citas.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+  </head>
+  <body>
+    <!-- <div class="card-img">
+
+       <img src="./img/descarga.jpg" alt="image" width="100%" height="100%">
+      
+      </div> -->
+
+      <div class="background-image">
+        <img src="https://www.clinicasanpablo.co/galepages/mac_gal_citas_medicas_1549383405.jpg" alt="Imagen de fondo">
+    <div class="contenedor">
+      <h1>Agendar cita</h1>
+      <form>
+        <div class="form-group">
+          <div class="form-floating">
+            <input type="text" class="form-control" id="floatingInput" placeholder="name example" required>
+            <label for="floatingInput">Nombre Completo</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-floating">
+            <input type="text" class="form-control" id="floatingInput" placeholder="00000-0000" required>
+            <label for="floatingInput">Numero de cedula</label>
+        </div>
+        <br>
+        <div class="form-group">
+          <div class="form-floating">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+            <label for="floatingInput">Email</label>
+        </div>
+        <br>
+        <p>Genero</p>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" required>
+          <label class="form-check-label" for="flexRadioDefault1">
+            Masculino
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" required>
+          <label class="form-check-label" for="flexRadioDefault2">
+            Femenino
+          </label>
+        </div>
+<br>
+          <div class="form-group">
+            <label for="fecha">Fecha</label>
+            <input type="date" id="date" name="date" required>
+            <!-- <input type="datetime-local" id="fecha" name="fecha" min="2023-03-26T08:00" max="2023-03-31T17:00" required> -->
+          </div>
+          
+          <div class="form-group">
+            <label for="fecha">Hora</label>
+            <input type="time" min="2023-03-26T08:00" max="2023-03-31T17:00" required>
+            <!-- <input type="datetime-local" id="fecha" name="fecha" min="2023-03-26T08:00" max="2023-03-31T17:00" required> -->
+          </div>
+        </div>
+
+        
+        <div class="form-group">
+          <label for="especialidad">Especialidad del médico asignado</label>
+          <select id="especialidad" name="especialidad" required>
+            <option value="">Seleccione una opción</option>
+            <option value="cardiología">Cardiología</option>
+            <option value="dermatología">Dermatología</option>
+            <option value="endocrinología">Endocrinología</option>
+            <option value="gastroenterología">Gastroenterología</option>
+            <option value="neurología">Neurología</option>
+          </select>
+        </div>
+        <div class="Btn">
+        <button type="submit">Iniciar sesión</button>
+      </div>
+      </form>
+    </div>
+      
+      <!-- <div class="horario">
+        <h2>Horario de atención</h2>
+        <p>Lunes a Sábado: 8:00am - 5:00pm</p>
+      </div> -->
+    </div>
+  </body>
+</html>

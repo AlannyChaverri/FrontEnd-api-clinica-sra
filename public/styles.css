@@ -1,0 +1,85 @@
+:root {
+  --color-blue-medium: #8fe2e4;
+  --color-purple: #632ce7;
+  --color-gray: #ccc;
+  --color-gray-medium: #f8f9fa;
+  --color-yellow: #fac32c;
+}
+
+.body {
+  margin: 0;
+  display: flex;
+  background-image: url(./img/logo2.png);
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* -------------Estilos generales ----------*/
+.nav a {
+  color: inherit;
+}
+
+.linea {
+  border: none;
+  height: 20px;
+  width: 100%;
+  height: 50px;
+  margin-top: 0;
+  border-bottom: 1px solid #1f1209;
+  box-shadow: 0 20px 20px -20px #333;
+  margin: -50px auto 10px;
+}
+
+.linea {
+  margin-top: 10px;
+}
+
+.linea {
+  margin-bottom: 40px;
+}
+
+/* ------->barra nav-------------- */
+.img-logo {
+  width: 45px;
+}
+
+.navbar-main .active {
+  text-decoration: underline #ffffff;
+  text-underline-offset: 9px;
+  color: #ffffff;
+}
+
+.navbar-main {
+  background: #3d95be;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+  color: #ffffff;
+}
+
+.nav {
+  padding-right: 50px;
+  height: 60px;
+}
+
+.social-icon:hover {
+  transform: translatey(-10px);
+  opacity: 2;
+  color: #021825;
+}
+
+.gradient {
+  background: linear-gradient(to right, #285e87, #0a8d9d);
+}
+
+/* ⏬⏬ este css da estilo a los mensajes de autentificacion */
+#status {
+  color: #fff;
+  position: absolute;
+  bottom: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 100%;
+}

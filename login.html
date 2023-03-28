@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="./public/styles.css" />
+  </head>
+
+  <body>
+    <section class="vh-100 banner gradient">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div
+              class="card shadow-2-strong opacity-75"
+              style="background-color: #b7b7b7; border-radius: 1rem"
+            >
+              <div class="card-body p-5 text-center">
+                <h3 class="mb-5">Iniciar Sesión</h3>
+                <form
+                  id="login-form"
+                  action="https://api-clinica-sra.onrender.com/api/auth/login"
+                  method="POST"
+                >
+                  <!-- User input -->
+                  <div class="input-group mb-3">
+                    <span class="input-group-text"
+                      ><i class="bi bi-person" style="font-size: 1.5rem"></i
+                    ></span>
+                    <div class="form-floating">
+                      <!-- ⏬⏬ SECAMBIAN LOS ID DE LOS <input> ⏬⏬ -->
+                      <input
+                        type="email"
+                        class="form-control name"
+                        id="email"
+                        placeholder="email@ejemplo.com"
+                        required
+                      />
+                      <label for="floatingInput">Correo</label>
+                      <div class="invalid-feedback">
+                        Please choose a username.
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <span class="input-group-text"
+                      ><i class="bi bi-lock" style="font-size: 1.5rem"></i
+                    ></span>
+                    <div class="form-floating">
+                      <input
+                        type="password"
+                        class="form-control password"
+                        id="password"
+                        placeholder="password"
+                        required
+                      />
+                      <label for="floatingInput">Contraseña</label>
+                    </div>
+                  </div>
+                  <!-- ⏬⏬ ESTO NO VA EN EL LOGIN ⏬⏬ -->
+                  <!-- <div class="form-floating mb-3">
+                    <select
+                      class="form-select"
+                      id="floatingSelect"
+                      aria-label="Floating label select"
+                    >
+                      <option value="public">Publico</option>
+                      <option value="Admin">Administrador</option>
+                      <option value="User">Recepcionista</option>
+                      <option value="User">Medico</option>
+                    </select>
+                    <label for="floatingSelect">Rol de Usuario</label>
+                  </div> -->
+
+                  <!-- Checkbox -->
+                  <div class="form-check d-flex justify-content-start mb-4">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="check"
+                    />
+                    <label class="form-check-label" for="check">
+                      Recordar contraseña
+                    </label>
+                  </div>
+
+                  <!--⏬⏬ se cambio el <button> por input ⏬⏬ -->
+                  <!-- <button
+                    class="btn btn-primary btn-lg btn-block"
+                    type="submit"
+                  >
+                    Login
+                  </button> -->
+
+                  <input
+                    class="btn btn-primary btn-lg btn-block"
+                    type="submit"
+                    value="Iniciar Sesión"
+                  />
+
+                  <hr class="my-4" />
+
+                  <a href="#" class="text-reset text-decoration-none">
+                    <svg
+                      width="30px"
+                      height="30px"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill="#4285F4"
+                        d="M15.68 8.182c0-.567-.05-1.112-.146-1.636H8V9.64h4.306a3.68 3.68 0 01-1.597 2.415v2.007h2.585c1.513-1.393 2.386-3.443 2.386-5.88z"
+                      ></path>
+                      <path
+                        fill="#34A853"
+                        d="M8 16c2.16 0 3.972-.717 5.295-1.939l-2.585-2.007c-.717.48-1.633.764-2.71.764-2.083 0-3.847-1.408-4.476-3.298H.852v2.072A7.997 7.997 0 008 16z"
+                      ></path>
+                      <path
+                        fill="#FBBC05"
+                        d="M3.524 9.52c-.16-.48-.251-.993-.251-1.52s.09-1.04.25-1.52V4.407H.852A7.997 7.997 0 000 8c0 1.29.31 2.513.85 3.593L3.525 9.52z"
+                      ></path>
+                      <path
+                        fill="#EA4335"
+                        d="M8 3.182c1.175 0 2.23.403 3.059 1.196l2.294-2.294C11.968.793 10.157 0 8.001 0A7.997 7.997 0 00.85 4.407L3.525 6.48c.63-1.89 2.393-3.298 4.477-3.298z"
+                      ></path>
+                    </svg>
+                  </a>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+      crossorigin="anonymous"
+    ></script>
+
+    <div id="contenedor">
+      <div id="status"></div>
+    </div>
+
+    <!-- <div id="status"></div> -->
+
+    <script>
+      const Form = document.getElementById("login-form");
+      Form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const email = Form.email.value;
+        const password = Form.password.value;
+
+        const data = { email, password };
+        const response = await fetch(
+          "https://api-clinica-sra.onrender.com/api/auth/login",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          }
+        );
+        const json = await response.json();
+        console.log(json);
+        console.log(email);
+        console.log(password);
+        // Hacer algo con la respuesta
+      });
+    </script>
+
+    <script>
+      const form = document.getElementById("login-form");
+      const status = document.getElementById("status");
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const email = form.email.value;
+        const password = form.password.value;
+        const data = { email, password };
+
+        const response = await fetch(
+          "https://api-clinica-sra.onrender.com/api/auth/login",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          }
+        );
+
+        const json = await response.json();
+
+        if (json.ok) {
+          status.textContent = "Inicio de sesión exitoso";
+          // Redireccionar al usuario a la página de inicio o al dashboard
+          window.location.assign("index.html");
+        } else {
+          status.textContent = json.msg;
+        }
+      });
+    </script>
+  </body>
+</html>
