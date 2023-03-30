@@ -75,9 +75,10 @@
 
 /* ⏬⏬ este css da estilo a los mensajes de autentificacion */
 #status {
+  display: block;
   color: #fff;
   position: absolute;
-  bottom: 150px;
+  bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;

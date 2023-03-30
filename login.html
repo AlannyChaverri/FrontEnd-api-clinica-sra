@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
+    <link rel="icon" href="/public/img/logo2.png" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link
       rel="stylesheet"
@@ -23,6 +24,15 @@
               style="background-color: #b7b7b7; border-radius: 1rem"
             >
               <div class="card-body p-5 text-center">
+                <div class="card-img">
+                  <img
+                    src="./public/img/logo.png"
+                    alt="image"
+                    width="20%"
+                    height="20%"
+                  />
+                </div>
+
                 <h3 class="mb-5">Iniciar Sesión</h3>
                 <form
                   id="login-form"
@@ -44,9 +54,7 @@
                         required
                       />
                       <label for="floatingInput">Correo</label>
-                      <div class="invalid-feedback">
-                        Please choose a username.
-                      </div>
+                      <div class="invalid-feedback"></div>
                     </div>
                   </div>
 
@@ -65,20 +73,6 @@
                       <label for="floatingInput">Contraseña</label>
                     </div>
                   </div>
-                  <!-- ⏬⏬ ESTO NO VA EN EL LOGIN ⏬⏬ -->
-                  <!-- <div class="form-floating mb-3">
-                    <select
-                      class="form-select"
-                      id="floatingSelect"
-                      aria-label="Floating label select"
-                    >
-                      <option value="public">Publico</option>
-                      <option value="Admin">Administrador</option>
-                      <option value="User">Recepcionista</option>
-                      <option value="User">Medico</option>
-                    </select>
-                    <label for="floatingSelect">Rol de Usuario</label>
-                  </div> -->
 
                   <!-- Checkbox -->
                   <div class="form-check d-flex justify-content-start mb-4">
@@ -109,6 +103,11 @@
 
                   <hr class="my-4" />
 
+                  <p>
+                    No tienes una cuenta?
+                    <a href="CreateUser.html">Crear cuenta</a>
+                  </p>
+
                   <a href="#" class="text-reset text-decoration-none">
                     <svg
                       width="30px"
@@ -134,7 +133,10 @@
                       ></path>
                     </svg>
                   </a>
-                  <a href="crearUsuario.html">Crear cuenta</a>
+                  <div id="contenedor">
+                    <!-- <br /> -->
+                    <div id="status"></div>
+                  </div>
                 </form>
               </div>
             </div>
@@ -148,9 +150,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <div id="contenedor">
-      <div id="status"></div>
-    </div>
     <!--⏬⏬ Estos Scripts consumen el api ⏬⏬ -->
     <script>
       // Obtiene el formulario HTML con el ID "login-form" y lo asigna a una constante llamada "Form"
@@ -185,7 +184,7 @@
         // Hacer algo con la respuesta del servidor
       });
     </script>
-    <a href="css/bootstrap.min.cs"></a>
+
     <script>
       // Obtiene el formulario HTML con el ID "login-form" y lo asigna a una constante llamada "form"
       const form = document.getElementById("login-form");
