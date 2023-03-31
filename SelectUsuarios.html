@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mostrar usuarios</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <br /><br /><br />
+    <h1>Usuarios</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <a href="login.html" class="navbar-brand">cerrar sesion</a>
+      <button
+        class="navbar-toggler"
+        data-target="#my-nav"
+        data-toggle="collapse"
+        aria-controls="my-nav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="my-nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="CreateUser.html">Crear</a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link" href="SelectUsuarios.html">Mostrar</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <table id="usuarios">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Rol</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <!-- <script src="../js/script.js"></script> -->
+    <script>
+      fetch("https://api-clinica-sra.onrender.com/api/users")
+        .then((response) => response.json())
+        .then((data) => {
+          const usuarios = data.users;
+          const tbody = document.querySelector("#usuarios tbody");
+
+          usuarios.forEach((usuario) => {
+            const row = document.createElement("tr");
+            const nameCell = document.createElement("td");
+            const emailCell = document.createElement("td");
+            const rolCell = document.createElement("td");
+
+            nameCell.textContent = usuario.name;
+            emailCell.textContent = usuario.email;
+            rolCell.textContent = usuario.rol;
+
+            row.appendChild(nameCell);
+            row.appendChild(emailCell);
+            row.appendChild(rolCell);
+
+            tbody.appendChild(row);
+          });
+        })
+        .catch((error) => console.error(error));
+    </script>
+  </body>
+</html>

@@ -9,11 +9,6 @@
 </head>
 
 <body>
-  <!-- <div class="card-img">
-
-       <img src="./img/descarga.jpg" alt="image" width="100%" height="100%">
-      
-      </div> -->
 
   <div class="background-image">
     <img src="https://www.clinicasanpablo.co/galepages/mac_gal_citas_medicas_1549383405.jpg" alt="Imagen de fondo">
@@ -44,33 +39,11 @@
               <label id="phone" name="patient.phone" for="floatingInput">Telefono</label>
             </div>
             <br>
-            <!-- <p>Genero</p>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" required>
-          <label class="form-check-label" for="flexRadioDefault1">
-            Masculino
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" required>
-          <label class="form-check-label" for="flexRadioDefault2">
-            Femenino
-          </label>
-        </div>
-<br> -->
+
             <div class="form-group">
               <label for="fecha">Fecha y hora</label>
               <input type="datetime-local" id="datehour" name="datehour" required>
-              <!-- <input type="datetime-local" id="fecha" name="fecha" min="2023-03-26T08:00" max="2023-03-31T17:00" required> -->
             </div>
-
-            <!-- <div class="form-group">
-            <label for="fecha">Hora</label>
-            <input type="time" min="2023-03-26T08:00" max="2023-03-31T17:00" required>
-            <input type="datetime-local" id="fecha" name="fecha" min="2023-03-26T08:00" max="2023-03-31T17:00" required>
-          </div>
-        </div> -->
-
 
             <div class="form-group">
               <label for="especialidad">Especialidad</label>
@@ -100,10 +73,6 @@
       </form>
     </div>
 
-    <!-- <div class="horario">
-        <h2>Horario de atención</h2>
-        <p>Lunes a Sábado: 8:00am - 5:00pm</p>
-      </div> -->
   </div>
 
   <script>
@@ -150,53 +119,6 @@
       // Comprobar si la respuesta de la API es exitosa (código de estado 200) y mostrar un mensaje de alerta correspondiente, además de restablecer el formulario. En caso contrario, mostrar un mensaje de error.
     });
   </script>
-
-  <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script>
-    // Obtiene el formulario HTML con el ID "appointment-form" y lo asigna a una constante llamada "form"
-    const form = document.getElementById("appointment-form");
-
-    // Agrega un evento "submit" al formulario y define una función de callback que se ejecutará cuando se envíe el formulario
-    form.addEventListener("submit", (e) => {
-      // Evita el comportamiento predeterminado de enviar el formulario
-      e.preventDefault();
-
-      // Crea un objeto FormData a partir del formulario HTML
-      const formData = new FormData(form);
-
-      // Obtiene los valores de los campos del formulario y los asigna a constantes
-      const name = formData.get("name");
-      const lastname = formData.get("lastname");
-      const dni = formData.get("dni");
-      const phone = formData.get("phone");
-      const datehour = formData.get("datehour");
-      const specialty = formData.get("specialty");
-      const doctor = formData.get("doctor");
-
-      // Envía una solicitud POST a la API utilizando Axios y el objeto de datos obtenido del formulario
-      axios
-        .post("https://api-clinica-sra.onrender.com/api/appointments/", {
-          name,
-          lastname,
-          dni,
-          phone,
-          datehour,
-          specialty,
-          doctor
-        })
-        .then((response) => {
-          // Si la solicitud se completa con éxito, se muestra un mensaje de éxito y se restablece el formulario
-          console.log(response.data);
-          alert("Cita registrada exitosamente.");
-          form.reset();
-        })
-        .catch((error) => {
-          // Si la solicitud falla, se muestra un mensaje de error en la consola y en una alerta
-          console.error(error);
-          alert("Error al registrar la cita.");
-        });
-    });
-  </script> -->
 </body>
 
 </html>

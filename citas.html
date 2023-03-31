@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- <script type="module" src="./main.js"></script> -->
+</head>
+
+<body>
+  <h1>Agregar Cita</h1>
+  <form action="/api/citas/horarios" method="post">
+    <label for="date">Fecha:</label>
+    <input type="date" id="date" name="date" required>
+
+    <label for="doctor">Medico:</label>
+    <select name="doctor" required>
+      <option value="">Seleccionar</option>
+
+
+      <% }) %>
+    </select>
+
+    <div><input type="submit" name="bnEnviar" id="bnEnviar" value="Crear Cita"></div>
+
+  </form>
+
+
+  <table id="usuarios">
+    <tr>
+      <th>Paciente</td>
+      <th>Fecha</td>
+      <th>Hora</td>
+      <th>Especialidad</td>
+      <th>Medico</td>
+    </tr>
+
+  </table>
+
+  <script>
+    fetch("https://api-clinica-sra.onrender.com/api/citas/")
+    .then((response) => response.json())
+  .then((data) => {
+    const citas = data.citas;
+    const doctors = data.doctors;
+    const tableBody = document.querySelector("#usuarios tbody");
+
+    citas.forEach((cita) => {
+      const row = document.createElement("tr");
+      const pacienteCell = document.createElement("td");
+      const fechaCell = document.createElement("td");
+      const horaCell = document.createElement("td");
+      const especialidadCell = document.createElement("td");
+      const medicoCell = document.createElement("td");
+
+      pacienteCell.textContent = cita.patient.name;
+      fechaCell.textContent = cita.fecha;
+      horaCell.textContent = cita.hora;
+      especialidadCell.textContent = cita.especialidad;
+      medicoCell.textContent = cita.medico;
+
+      row.appendChild(pacienteCell);
+      row.appendChild(fechaCell);
+      row.appendChild(horaCell);
+      row.appendChild(especialidadCell);
+      row.appendChild(medicoCell);
+
+      tableBody.appendChild(row);
+    });
+  })
+  .catch((error) => console.error(error));
+  </script>
+
+
+</body>
+
+</html>
