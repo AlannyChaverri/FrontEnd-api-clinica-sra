@@ -17,18 +17,41 @@
     <input type="date" id="date" name="date" required>
 
     <label for="doctor">Medico:</label>
-    <select name="doctor" required>
+    <select id="my-select" name="doctor" required>
       <option value="">Seleccionar</option>
-
-
-      <% }) %>
     </select>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const select = document.getElementById('my-select');
+
+        fetch('https://api-clinica-sra.onrender.com/api/citas/doctors')
+          .then(response => response.json())
+          .then(data => {
+            data.doctors.forEach(doctor => {
+              const option = document.createElement('option');
+              const optionText = `${doctor.name} (${doctor.speciality})`;
+              option.value = doctor._id;
+              option.text = optionText;
+              select.appendChild(option);
+            });
+          })
+          .catch(error => console.error(error));
+
+        select.addEventListener('change', event => {
+          const selectedOption = event.target.selectedOptions[0];
+          if (selectedOption.value === '') {
+            selectedOption.setAttribute('disabled', true);
+          }
+        });
+      });
+    </script>
+
 
     <div><input type="submit" name="bnEnviar" id="bnEnviar" value="Crear Cita"></div>
 
   </form>
-
-
+  
   <table id="usuarios">
     <tr>
       <th>Paciente</td>
