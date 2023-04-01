@@ -24,15 +24,14 @@
     <script>
       const form = document.querySelector('form');
       form.addEventListener('submit', (event) => {
-        event.preventDefault(); // previene el envío del formulario
-        
+        event.preventDefault(); 
         const medico = document.getElementById('my-select').value;
         const fecha = document.getElementById('date').value;
         const params = new URLSearchParams();
         params.append('medico', medico);
         params.append('fecha', fecha);
         const url = `citasCreate.html?${params.toString()}`;
-        window.location.href = url; // redirige a citasCreate.html con los parámetros de búsqueda
+        window.location.href = url;
       });
     </script>
     
