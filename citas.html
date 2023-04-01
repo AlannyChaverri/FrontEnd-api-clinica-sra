@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Front</title>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <!-- <script type="module" src="./main.js"></script> -->
 </head>
 
 <body>
   <h1>Agregar Cita</h1>
-  <form action="/api/citas/horarios" method="post">
+  <form action="citasCreate.html" method="post">
     <label for="date">Fecha:</label>
     <input type="date" id="date" name="date" required>
 
@@ -21,6 +21,21 @@
       <option value="">Seleccionar</option>
     </select>
 
+    <script>
+      const form = document.querySelector('form');
+      form.addEventListener('submit', (event) => {
+        event.preventDefault(); // previene el envío del formulario
+        
+        const medico = document.getElementById('my-select').value;
+        const fecha = document.getElementById('date').value;
+        const params = new URLSearchParams();
+        params.append('medico', medico);
+        params.append('fecha', fecha);
+        const url = `citasCreate.html?${params.toString()}`;
+        window.location.href = url; // redirige a citasCreate.html con los parámetros de búsqueda
+      });
+    </script>
+    
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const select = document.getElementById('my-select');
