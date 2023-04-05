@@ -20,45 +20,111 @@
         value=""
         required
       />
-      <label for="horario">Horario:</label>
-      <select name="horario" required>
+      ```
+      <!-- <label for="horario">Horario:</label>
+
+      <select name="horario" id="horario" required>
         <option value="">Seleccionar</option>
-        <% horario.forEach((h)=>{ %>
-        <option value="<%= h.toISOString() %>">
-          <%= h.toISOString().split('T')[0] + ' ' +
-          (h.toISOString().split('T')[1]).split('.')[0] %>
-        </option>
-        <% }) %>
       </select>
 
-      <input
-        type="text"
-        name="speciality"
-        id="speciality"
-        value="<%= doct.speciality %>"
-        readonly
-      />
-      <input
-        type="text"
-        name="nameDoctor"
-        id="nameDoctor"
-        value="<%= doct.name %>"
-        readonly
-      />
-      <input
-        type="text"
-        name="idDoctor"
-        id="idDoctor"
-        value="<%= doct.id %>"
-        hidden
-      />
+      <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const fecha1 = urlParams.get("fecha");
+
+        const horario = [];
+        for (let i = 8; i < 17; i++) {
+          for (let j = 0; j < 60; j += 30) {
+            const hora = i < 10 ? `0${i}` : i;
+            const minutos = j < 10 ? `0${j}` : j;
+            const fechaHora = `${fecha1}T${hora}:${minutos}:00`;
+            const fechaHoraLocal = new Date(fechaHora + "Z").toLocaleString(
+              [],
+              {
+                timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+              }
+            );
+            horario.push(new Date(fechaHoraLocal));
+          }
+        }
+
+        const select = document.getElementById("horario");
+
+        horario.forEach((h) => {
+          const option = document.createElement("option");
+          option.value = h.toISOString();
+          option.textContent =
+            h.toISOString().split("T")[0] +
+            " " +
+            h.toISOString().split("T")[1].split(".")[0];
+          select.appendChild(option);
+        });
+      </script> -->
+
+      ```
+      <label for="horario">Horario:</label>
+
+      <select name="horario" id="horario" required>
+        <option value="">Seleccionar</option>
+      </select>
+
+      <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const fecha1 = urlParams.get("fecha");
+
+        const horario = [];
+        for (let i = 8; i < 17; i++) {
+          for (let j = 0; j < 60; j += 30) {
+            const hora = i < 10 ? `0${i}` : i;
+            const minutos = j < 10 ? `0${j}` : j;
+            const fechaHora = `${fecha1}T${hora}:${minutos}:00`;
+            const fechaHoraLocal = new Date(fechaHora + "Z").toLocaleString(
+              [],
+              {
+                timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+              }
+            );
+            horario.push(new Date(fechaHoraLocal));
+          }
+        }
+
+        const select = document.getElementById("horario");
+
+        horario.forEach((h) => {
+          const option = document.createElement("option");
+          option.value = h.toISOString();
+          option.textContent = option.textContent =
+            h.toLocaleDateString("es-ES", {
+              year: "numeric",
+              month: "2-digit",
+              day: "2-digit",
+            }) +
+            " " +
+            h.toLocaleTimeString("es-ES", {
+              hour: "numeric",
+              minute: "2-digit",
+              hour12: true,
+            });
+
+          select.appendChild(option);
+        });
+      </script>
+
+      <input type="text" name="speciality" id="speciality" value="" readonly />
+      <input type="text" name="nameDoctor" id="nameDoctor" value="" readonly />
+      <input type="text" name="idDoctor" id="idDoctor" value="" hidden />
       <input type="submit" value="Registrar Cita" />
     </form>
-
-    <script>
-      const searchParams = new URLSearchParams(window.location.search);
-      const fecha = searchParams.get("fecha");
-      const medico = searchParams.get("medico");
-    </script>
   </body>
 </html>

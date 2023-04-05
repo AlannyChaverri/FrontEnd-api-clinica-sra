@@ -24,17 +24,16 @@
     <script>
       const form = document.querySelector('form');
       form.addEventListener('submit', (event) => {
-        event.preventDefault(); 
+        event.preventDefault();
         const medico = document.getElementById('my-select').value;
         const fecha = document.getElementById('date').value;
-        const params = new URLSearchParams();
-        params.append('medico', medico);
-        params.append('fecha', fecha);
-        const url = `citasCreate.html?${params.toString()}`;
+        const fechaParams = new Date(fecha).toISOString().substring(0, 10); // obtener la fecha en formato ISO
+        const url = `citasCreate.html?medico=${medico}&fecha=${fechaParams}`; // crear la URL manualmente
         window.location.href = url;
       });
+
     </script>
-    
+
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const select = document.getElementById('my-select');
@@ -65,7 +64,7 @@
     <div><input type="submit" name="bnEnviar" id="bnEnviar" value="Crear Cita"></div>
 
   </form>
-  
+
   <table id="usuarios">
     <tr>
       <th>Paciente</td>
@@ -79,36 +78,36 @@
 
   <script>
     fetch("https://api-clinica-sra.onrender.com/api/citas/")
-    .then((response) => response.json())
-  .then((data) => {
-    const citas = data.citas;
-    const doctors = data.doctors;
-    const tableBody = document.querySelector("#usuarios tbody");
+      .then((response) => response.json())
+      .then((data) => {
+        const citas = data.citas;
+        const doctors = data.doctors;
+        const tableBody = document.querySelector("#usuarios tbody");
 
-    citas.forEach((cita) => {
-      const row = document.createElement("tr");
-      const pacienteCell = document.createElement("td");
-      const fechaCell = document.createElement("td");
-      const horaCell = document.createElement("td");
-      const especialidadCell = document.createElement("td");
-      const medicoCell = document.createElement("td");
+        citas.forEach((cita) => {
+          const row = document.createElement("tr");
+          const pacienteCell = document.createElement("td");
+          const fechaCell = document.createElement("td");
+          const horaCell = document.createElement("td");
+          const especialidadCell = document.createElement("td");
+          const medicoCell = document.createElement("td");
 
-      pacienteCell.textContent = cita.patient.name;
-      fechaCell.textContent = cita.fecha;
-      horaCell.textContent = cita.hora;
-      especialidadCell.textContent = cita.especialidad;
-      medicoCell.textContent = cita.medico;
+          pacienteCell.textContent = cita.patient.name;
+          fechaCell.textContent = cita.fecha;
+          horaCell.textContent = cita.hora;
+          especialidadCell.textContent = cita.especialidad;
+          medicoCell.textContent = cita.medico;
 
-      row.appendChild(pacienteCell);
-      row.appendChild(fechaCell);
-      row.appendChild(horaCell);
-      row.appendChild(especialidadCell);
-      row.appendChild(medicoCell);
+          row.appendChild(pacienteCell);
+          row.appendChild(fechaCell);
+          row.appendChild(horaCell);
+          row.appendChild(especialidadCell);
+          row.appendChild(medicoCell);
 
-      tableBody.appendChild(row);
-    });
-  })
-  .catch((error) => console.error(error));
+          tableBody.appendChild(row);
+        });
+      })
+      .catch((error) => console.error(error));
   </script>
 
 
